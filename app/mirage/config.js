@@ -77,7 +77,8 @@ export default function() {
   this.post('/token', function(db, req) {
     // TODO: find a way to decode req body form data so I don't have to hack includes checks
     const body = req.requestBody;
-    if (body.grant_type === 'password' || body.includes('grant_type=password')) {
+    //if (body.grant_type === 'password') {
+    if (body.includes('grant_type=password')) {
       //if (body.username === 'letme' && body.password === 'in') {
       if (body.includes('username=letme') && body.includes('password=in')) {
         return { access_token: 'secret token' };
