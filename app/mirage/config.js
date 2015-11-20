@@ -89,6 +89,8 @@ export default function() {
       return new Mirage.Response(400, {}, { error: 'unsupported_grant_type' });
     }
   });
+
+  this.get('/albums');
 }
 
 /*

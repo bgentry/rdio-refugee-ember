@@ -7,7 +7,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
-  this.route('library');
+  this.route('library', function() {
+    this.route('albums', { resetNamespace: true }, function() {
+      this.route('album', { path: "/:album_id" });
+    });
+  });
 });
 
 export default Router;

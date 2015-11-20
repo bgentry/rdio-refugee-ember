@@ -1,0 +1,9 @@
+<h3>Albums</h3>
+
+<ul>
+  {{#each model as |album|}}
+    <li>{{album.id}} {{album.name}}</li>
+  {{/each}}
+</ul>
+
+{{outlet}}
