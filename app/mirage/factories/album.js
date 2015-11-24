@@ -17,5 +17,5 @@ export default Mirage.Factory.extend({
   name: '...Hits',
   isExplicit: false,
   artist: 'Phil Collins',
-  length: 16,
+  length: 16
 });

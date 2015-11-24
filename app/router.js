@@ -9,7 +9,7 @@ Router.map(function() {
   this.route('login');
   this.route('library', function() {
     this.route('albums', { resetNamespace: true }, function() {
-      this.route('album', { path: "/:album_id", resetNamespace: true });
+      this.route('album', { path: '/:album_id', resetNamespace: true });
     });
   });
 });

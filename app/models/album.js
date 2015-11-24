@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-const attr = DS.attr;
+const { attr } = DS;
 
 export default DS.Model.extend({
   artist: attr('string'),
