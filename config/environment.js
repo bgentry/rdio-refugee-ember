@@ -16,6 +16,22 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      crossOriginWhitelist: ['http://localhost:8000'],
+    },
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'rdio-oauth2': {
+          apiKey: 'fpfhz6k7qzgzvazadbup2bo474',
+        },
+        'spotify-oauth2': {
+          scope: 'user-library-modify,user-library-read,user-read-private',
+          apiKey: '0488da3e1a7549e299ab4e26e0b5c0d1',
+        }
+      }
     }
   };
 

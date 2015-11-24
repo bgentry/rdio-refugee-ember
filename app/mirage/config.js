@@ -1,5 +1,3 @@
-import Mirage from 'ember-cli-mirage';
-
 export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
@@ -74,19 +72,9 @@ export default function() {
     });
 
   */
-  this.post('/token', function(db, req) {
-    // TODO: find a way to decode req body form data so I don't have to hack includes checks
-    const body = req.requestBody;
-    // if (body.grant_type === 'password') {
-    if (body.includes('grant_type=password')) {
-      // if (body.username === 'letme' && body.password === 'in') {
-      if (body.includes('username=letme') && body.includes('password=in')) {
-        return { access_token: 'secret token' }; // jshint ignore:line
-      } else {
-        return new Mirage.Response(400, {}, { error: 'invalid_grant' });
-      }
-    } else {
-      return new Mirage.Response(400, {}, { error: 'unsupported_grant_type' });
+  this.post('/sessions', function(db, req) {
+    if (req.requestBody.code !== '') {
+      return { userId: 123 };
     }
   });
 
