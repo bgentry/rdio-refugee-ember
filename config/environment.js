@@ -19,7 +19,6 @@ module.exports = function(environment) {
     },
     'ember-simple-auth': {
       authenticationRoute: 'login',
-      crossOriginWhitelist: ['http://localhost:8000'],
     },
     torii: {
       sessionServiceName: 'session',
@@ -41,6 +40,20 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
+
+    ENV.contentSecurityPolicy = {
+      'default-src': "'none'",
+      'script-src': "'self'",
+      'font-src': "'self'",
+      'connect-src': "'self' http://localhost:8000",
+      'img-src': "'self'",
+      'style-src': "'self'",
+      'media-src': "'self'"
+    };
   }
 
   if (environment === 'test') {
