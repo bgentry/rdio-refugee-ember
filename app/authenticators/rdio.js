@@ -16,7 +16,6 @@ export default Base.extend({
     return new Ember.RSVP.Promise((resolve, reject) => {
       this.get('torii').open('rdio-oauth2', state).then((data) => {
         // TODO: use a non-localhost API target or pull from settings
-        console.log('data in rdio authenticator:', data);
         return Ember.$.ajax({
           type: 'POST',
           url: 'http://localhost:8000/sessions',
@@ -28,6 +27,7 @@ export default Base.extend({
           dataType: 'json'
         });
       }).then((data) => {
+        console.log('data in rdio authenticator:', data);
         resolve(data);
       }).catch((error) => {
         reject(error);
