@@ -1,2 +1,20 @@
 // external imports:
 @import 'normalize';
+@import 'bourbon';
+@import 'neat';
+@import 'bitters';
+
+// internal imports:
+@import 'nav-bar';
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+section {
+  @include outer-container;
+}
