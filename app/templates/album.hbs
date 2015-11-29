@@ -14,3 +14,13 @@
   <dd>URL</dd>
   <dt><a href='{{model.shortUrl}}'>{{model.shortUrl}}</a></dt>
 </dl>
+
+<h3>Track list:</h3>
+<ul>
+  {{#each model.tracks as |track|}}
+    <li>
+      {{track.trackNum}}: {{track.name}}
+      {{#if track.isExplicit}}(Explicit){{/if}}
+    </li>
+  {{/each}}
+</ul>

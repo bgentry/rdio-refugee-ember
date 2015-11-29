@@ -1,8 +1,10 @@
 import DS from 'ember-data';
-const { attr } = DS;
+const { attr, hasMany } = DS;
 
 export default DS.Model.extend({
-  artist: attr('string'),
+  tracks: hasMany('tracks', { async: true }),
+
+  artistName: attr('string'),
   duration: attr('number'),
   icon: attr('string'),
   isClean: attr('boolean'),

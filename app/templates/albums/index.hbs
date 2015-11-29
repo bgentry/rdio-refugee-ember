@@ -1,7 +1,7 @@
 <ul class="collection-list">
   {{#each model as |album|}}
     <li class="collection-item">
-      {{#link-to 'album' album}}
+      {{#link-to 'album' album.id}}
         <img src='{{album.icon}}' title='{{album.name}}'/>
       {{/link-to}}
     </li>
