@@ -10,6 +10,6 @@ export default DS.Model.extend({
   length: attr('number'),
   name: attr('string'),
   releaseDate: attr('date'),
-  shortUrl: attr('string')
-  // upcs: attr('array')
+  shortUrl: attr('string'),
+  upcs: attr()
 });
