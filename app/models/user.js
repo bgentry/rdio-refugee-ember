@@ -6,6 +6,7 @@ export default DS.Model.extend({
   displayName: attr('string'),
   rdioUsername: attr('string'),
   rdioIconUrl: attr('string'),
+  rdioLibrarySynced: attr('boolean'),
   createdAt: attr('date'),
   updatedAt: attr('date')
 });
