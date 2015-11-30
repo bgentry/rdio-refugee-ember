@@ -1,5 +1,10 @@
 .collection-list {
   .collection-item {
     display: inline-block;
+
+    .album-art {
+      height: 200px;
+      width: 200px;
+    }
   }
 }
