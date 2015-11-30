@@ -27,8 +27,10 @@ module.exports = function(environment) {
           apiKey: 'fpfhz6k7qzgzvazadbup2bo474',
         },
         'spotify-oauth2': {
-          scope: 'user-library-modify,user-library-read,user-read-private',
+          accessType: 'offline',
+          scope: 'user-library-modify user-library-read user-read-private',
           apiKey: '0488da3e1a7549e299ab4e26e0b5c0d1',
+          redirectUri: 'http://localhost:4210/login/spotify',
         }
       }
     }

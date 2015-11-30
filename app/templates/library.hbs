@@ -1,5 +1,8 @@
 <h2>{{currentUser.firstName}}'s Rdio Library</h2>
 
+{{#unless currentUser.spotifyLoggedIn}}
+  <button {{action 'signIntoSpotify'}}>Sign into Spotify</button>
+{{/unless}}
 <button {{action 'startSync'}}>Start Sync</button>
 
 {{outlet}}

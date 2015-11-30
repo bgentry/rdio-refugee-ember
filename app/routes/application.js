@@ -6,20 +6,26 @@ import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mi
 export default Ember.Route.extend(ApplicationRouteMixin, {
   beforeModel() {
     if (this.session.isAuthenticated) {
-      return this._populateCurrentUser();
+      return this._populateCurrentUser(false);
     }
   },
 
   sessionAuthenticated() {
-    this._populateCurrentUser().then(() => {
+    this._populateCurrentUser(false).then(() => {
       this.transitionTo('library');
     });
   },
 
-  _populateCurrentUser() {
+  actions: {
+    reloadCurrentUser() {
+      this._populateCurrentUser(true);
+    }
+  },
+
+  _populateCurrentUser(reload) {
     const userID = this.get('session.data.authenticated.user_id');
     if (!Ember.isEmpty(userID)) {
-      return this.store.find('user', userID).then((user) => {
+      return this.store.findRecord('user', userID, { reload }).then((user) => {
         this.get('currentUser').set('content', user);
       });
     }

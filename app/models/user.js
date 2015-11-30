@@ -7,6 +7,7 @@ export default DS.Model.extend({
   rdioUsername: attr('string'),
   rdioIconUrl: attr('string'),
   rdioLibrarySynced: attr('boolean'),
+  spotifyLoggedIn: attr('boolean'),
   createdAt: attr('date'),
   updatedAt: attr('date')
 });

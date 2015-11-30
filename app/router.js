@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('login');
+  this.route('login', function() {
+    this.route('spotify/callback');
+  });
   this.route('library', function() {
     this.route('albums', { resetNamespace: true }, function() {
       this.route('album', { path: '/:id', resetNamespace: true });

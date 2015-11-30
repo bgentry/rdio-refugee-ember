@@ -27,7 +27,6 @@ export default Base.extend({
           dataType: 'json'
         });
       }).then((data) => {
-        console.log('data in rdio authenticator:', data);
         resolve(data);
       }).catch((error) => {
         reject(error);
