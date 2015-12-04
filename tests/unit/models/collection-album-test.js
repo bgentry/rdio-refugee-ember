@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('album', 'Unit | Model | album', {
+moduleForModel('collection-album', 'Unit | Model | collection album', {
   // Specify the other units that are required for this test.
-  needs: ['model:track']
+  needs: []
 });
 
 test('it exists', function(assert) {

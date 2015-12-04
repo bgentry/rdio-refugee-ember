@@ -1,23 +1,23 @@
-<img class='album-art' src='{{model.icon}}'/>
+<img class='album-art' src='{{model.rdioAlbum.icon}}'/>
 
 <dl>
   <dd>Artist</dd>
-  <dt>{{model.artistName}}</dt>
+  <dt>{{model.rdioAlbum.artistName}}</dt>
   <dd>Tracks</dd>
-  <dt>{{model.length}}</dt>
+  <dt>{{model.rdioAlbum.length}}</dt>
   <dd>Duration</dd>
-  <dt>{{model.duration}}</dt>
+  <dt>{{model.rdioAlbum.duration}}</dt>
   <dd>Explicit?</dd>
-  <dt>{{model.isExplicit}}</dt>
+  <dt>{{model.rdioAlbum.isExplicit}}</dt>
   <dd>Clean?</dd>
-  <dt>{{model.isClean}}</dt>
+  <dt>{{model.rdioAlbum.isClean}}</dt>
   <dd>URL</dd>
-  <dt><a href='{{model.shortUrl}}'>{{model.shortUrl}}</a></dt>
+  <dt><a href='{{model.rdioAlbum.shortUrl}}'>{{model.rdioAlbum.shortUrl}}</a></dt>
 </dl>
 
 <h3>Track list:</h3>
 <ul>
-  {{#each model.tracks as |track|}}
+  {{#each model.rdioAlbum.tracks as |track|}}
     <li>
       {{track.trackNum}}: {{track.name}}
       {{#if track.isExplicit}}(Explicit){{/if}}

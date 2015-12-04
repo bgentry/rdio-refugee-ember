@@ -2,7 +2,7 @@
   {{#each model as |album|}}
     <li class="collection-item">
       {{#link-to 'album' album.id}}
-        <img class='album-art' src='{{album.icon}}' title='{{album.name}}'/>
+        <img class='album-art' src='{{album.rdioAlbum.icon}}' title='{{album.rdioAlbum.name}}'/>
       {{/link-to}}
     </li>
   {{/each}}
