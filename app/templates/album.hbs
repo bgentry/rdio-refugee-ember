@@ -1,26 +1,60 @@
-<img class='album-art' src='{{model.rdioAlbum.icon}}'/>
+<div class='rdio-album'>
+  <div class='album-art' style={{backgroundImage model.rdioAlbum.icon}}></div>
+  <p class='album-name'>{{model.rdioAlbum.name}}</p>
+  <p class='artist-name'>{{model.rdioAlbum.artistName}}</p>
 
-<dl>
-  <dd>Artist</dd>
-  <dt>{{model.rdioAlbum.artistName}}</dt>
-  <dd>Tracks</dd>
-  <dt>{{model.rdioAlbum.length}}</dt>
-  <dd>Duration</dd>
-  <dt>{{model.rdioAlbum.duration}}</dt>
-  <dd>Explicit?</dd>
-  <dt>{{model.rdioAlbum.isExplicit}}</dt>
-  <dd>Clean?</dd>
-  <dt>{{model.rdioAlbum.isClean}}</dt>
-  <dd>URL</dd>
-  <dt><a href='{{model.rdioAlbum.shortUrl}}'>{{model.rdioAlbum.shortUrl}}</a></dt>
-</dl>
+  <dl>
+    <dt>Tracks</dt>
+    <dd>{{model.rdioAlbum.length}}</dd>
+    <dt>Duration</dt>
+    <dd>{{model.rdioAlbum.duration}}</dd>
+    <dt>Explicit?</dt>
+    <dd>{{model.rdioAlbum.isExplicit}}</dd>
+    <dt>Clean?</dt>
+    <dd>{{model.rdioAlbum.isClean}}</dd>
+    <dt>URL</dt>
+    <dd><a href='{{model.rdioAlbum.shortUrl}}'>{{model.rdioAlbum.shortUrl}}</a></dd>
+  </dl>
 
-<h3>Track list:</h3>
-<ul>
-  {{#each model.rdioAlbum.tracks as |track|}}
-    <li>
-      {{track.trackNum}}: {{track.name}}
-      {{#if track.isExplicit}}(Explicit){{/if}}
-    </li>
+  <h3>Track list:</h3>
+  <ul>
+    {{#each model.rdioAlbum.tracks as |track|}}
+      <li>
+        {{track.trackNum}}: {{track.name}}
+        {{#if track.isExplicit}}(Explicit){{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<div class='spotify-album-list'>
+  {{#each model.matches as |spotifyAlbum|}}
+    <div class='spotify-album'>
+      <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
+      <p class='album-name'>{{spotifyAlbum.name}}</p>
+      <p class='artist-name'>{{spotifyAlbum.artistName}}</p>
+      <dl>
+        <dt>Tracks</dt>
+        <dd>{{spotifyAlbum.tracks.length}}</dd>
+        <dt>Duration</dt>
+        <dd>{{spotifyAlbum.durationMs}}</dd>
+        <dt>Explicit?</dt>
+        <dd>{{spotifyAlbum.isExplicit}}</dd>
+        <dt>Clean?</dt>
+        <dd>{{spotifyAlbum.isClean}}</dd>
+        <dt>URL</dt>
+        <dd><a href='{{spotifyAlbum.shortUrl}}'>{{spotifyAlbum.shortUrl}}</a></dd>
+      </dl>
+
+      <h3>Track list:</h3>
+      <ul>
+        {{#each spotifyAlbum.tracks as |track|}}
+          <li>
+            {{track.trackNum}}: {{track.name}}
+            {{#if track.isExplicit}}(Explicit){{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   {{/each}}
-</ul>
+</div>

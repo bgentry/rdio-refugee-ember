@@ -1,1 +1,13 @@
 <p>{{#link-to 'albums'}}Albums{{/link-to}}</p>
+
+{{#unless currentUser.spotifyLoggedIn}}
+  <button {{action 'signIntoSpotify'}}>Sign into Spotify</button>
+{{/unless}}
+{{#unless currentUser.rdioLibrarySynced}}
+  <button {{action 'startSync'}}>Start Rdio Sync</button>
+{{/unless}}
+{{#if currentUser.readyForSpotifyMatch}}
+  <button {{action 'matchWithSpotify'}}>Match with Spotify</button>
+{{/if}}
+
+{{outlet}}

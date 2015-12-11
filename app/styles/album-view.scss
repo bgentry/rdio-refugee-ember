@@ -1,0 +1,42 @@
+@import 'variables';
+
+.rdio-album {
+  @include span-columns(3);
+
+  background-color: $lighter-dark-gray;
+}
+
+.spotify-album-list {
+  @include span-columns(9);
+
+  .spotify-album {
+    @include span-columns(3 of 9);
+    @include omega(3n);
+
+    background-color: $light-dark-gray;
+  }
+
+  .album-art {
+    width: 100%;
+  }
+
+  .artist-name {
+    color: $text-light-gray;
+  }
+}
+
+.rdio-album, .spotify-album {
+  .album-art {
+    background: center / cover no-repeat;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  .album-name {
+    font-weight: bold;
+  }
+}

@@ -17,5 +17,22 @@ section {
 }
 
 // internal imports:
+@import 'variables';
 @import 'nav-bar';
 @import 'collection-item';
+@import 'album-view';
+
+body {
+  background-color: $dark-gray;
+  color: $text-white;
+}
+
+a {
+  color: $text-white;
+  text-decoration: none;
+
+  &:hover {
+    color: $text-white;
+    text-decoration: underline;
+  }
+}

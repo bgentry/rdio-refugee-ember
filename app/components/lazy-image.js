@@ -6,10 +6,10 @@ export default LazyImage.extend({
     Ember.setProperties(this, {
       viewportUseRAF      : true,
       viewportSpy         : false,
-      viewportRefreshRate : 150,
+      viewportRefreshRate : 500,
       viewportTolerance: {
         top    : 50,
-        bottom : 300,
+        bottom : 200,
         left   : 20,
         right  : 20
       }

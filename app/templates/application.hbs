@@ -1,7 +1,11 @@
-<h1 id="title">Rdio to Spotify</h1>
+<header>
+  <h1 id="title">Rdio to Spotify</h1>
 
-{{#if session.isAuthenticated}}
-  <button {{action 'logout'}}>Logout</button>
-{{/if}}
+  {{#if session.isAuthenticated}}
+    <button {{action 'logout'}}>Logout</button>
+  {{/if}}
+</header>
 
-{{outlet}}
+<section class='content'>
+  {{outlet}}
+</section>

@@ -1,13 +1,3 @@
 <h2>{{currentUser.firstName}}'s Rdio Library</h2>
 
-{{#unless currentUser.spotifyLoggedIn}}
-  <button {{action 'signIntoSpotify'}}>Sign into Spotify</button>
-{{/unless}}
-{{#unless currentUser.rdioLibrarySynced}}
-  <button {{action 'startSync'}}>Start Rdio Sync</button>
-{{/unless}}
-{{#if currentUser.readyForSpotifyMatch}}
-  <button {{action 'matchWithSpotify'}}>Match with Spotify</button>
-{{/if}}
-
 {{outlet}}

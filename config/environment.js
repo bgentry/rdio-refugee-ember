@@ -52,8 +52,8 @@ module.exports = function(environment) {
       'script-src': "'self'",
       'font-src': "'self'",
       'connect-src': "'self' http://localhost:8000",
-      'img-src': "'self' *.akamaihd.net *.cdn2-rdio.com",
-      'style-src': "'self'",
+      'img-src': "'self' *.akamaihd.net *.cdn2-rdio.com i.scdn.co",
+      'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     };
   }
