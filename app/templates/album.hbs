@@ -5,25 +5,27 @@
   <div class='album-art' style={{backgroundImage model.rdioAlbum.icon}}></div>
   <p class='album-name'>
     {{model.rdioAlbum.name}}
+    {{#if model.rdioAlbum.isExplicit}}
+      <span class='explicit-icon'></span>
+    {{/if}}
     <a class='album-link' href='{{model.rdioAlbum.shortUrl}}' title='View on Rdio'>🔗</a>
   </p>
   <p class='artist-name'>{{model.rdioAlbum.artistName}}</p>
 
-  <dl>
-    <dt>Tracks</dt>
-    <dd>{{model.rdioAlbum.length}}</dd>
-    <dt>Duration</dt>
-    <dd>{{model.rdioAlbum.duration}}</dd>
-    <dt>Explicit?</dt>
-    <dd>{{if model.rdioAlbum.isExplicit 'yes' 'no'}}</dd>
-  </dl>
+  <div class='metadata'>
+    {{moment-format model.rdioAlbum.releaseDate 'YYYY'}}
+    ·
+    {{pluralize-word 0 'songs'}},
+    {{moment-duration model.rdioAlbum.duration 's'}}
+  </div>
 
-  <h3>Track list:</h3>
-  <ul>
+  <ul class='track-list'>
     {{#each model.rdioAlbum.tracks as |track|}}
-      <li>
+      <li class='track-list-item'>
         {{track.trackNum}}: {{track.name}}
-        {{#if track.isExplicit}}(Explicit){{/if}}
+        {{#if track.isExplicit}}
+          <span class='explicit-icon'></span>
+        {{/if}}
       </li>
     {{/each}}
   </ul>
@@ -41,25 +43,27 @@
       </div>
       <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
       <p class='album-name' title={{spotifyAlbum.name}}>
+        {{#if spotifyAlbum.explicit}}
+          <span class='explicit-icon'></span>
+        {{/if}}
         {{spotifyAlbum.name}}
         <a class='album-link' href='{{spotifyAlbum.url}}' title='View on Spotify'>🔗</a>
       </p>
       <p class='artist-name' title={{spotifyAlbum.artistName}}>{{spotifyAlbum.artistName}}</p>
-      <dl>
-        <dt>Tracks</dt>
-        <dd>{{spotifyAlbum.tracks.length}}</dd>
-        <dt>Duration</dt>
-        <dd>{{if spotifyAlbum.duration spotifyAlbum.duration '-'}}</dd>
-        <dt>Explicit?</dt>
-        <dd>{{if spotifyAlbum.explicit 'yes' 'no'}}</dd>
-      </dl>
+      <div class='metadata'>
+        {{moment-format spotifyAlbum.releaseDate 'YYYY'}}
+        ·
+        {{pluralize-word spotifyAlbum.trackCount 'songs'}},
+        {{moment-duration spotifyAlbum.duration 's'}}
+      </div>
 
-      <h3>Track list:</h3>
-      <ul>
+      <ul class='track-list'>
         {{#each spotifyAlbum.tracks as |track|}}
-          <li>
+          <li class='track-list-item'>
             {{track.trackNum}}: {{track.name}}
-            {{#if track.explicit}}(Explicit){{/if}}
+            {{#if track.explicit}}
+              <span class='explicit-icon'></span>
+            {{/if}}
           </li>
         {{/each}}
       </ul>

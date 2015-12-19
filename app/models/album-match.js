@@ -9,11 +9,19 @@ export default DS.Model.extend({
   artistName: attr('string'),
   image: attr('string'),
   name: attr('string'),
-  releaseDate: attr('string'),
+  releaseDate: attr('utc'),
   spotifyId: attr('string'),
   tracks: attr(),
   upc: attr('string'),
   url: attr('string'),
+
+  trackCount: computed('tracks.[]', function() {
+    const tracks = this.get('tracks');
+    if (!tracks) {
+      return tracks;
+    }
+    return tracks.length;
+  }),
 
   trackDurationsMs: computed.mapBy('tracks', 'durationMs'),
   durationMs: computed.sum('trackDurationsMs'),

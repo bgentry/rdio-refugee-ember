@@ -2,8 +2,6 @@
 
 .rdio-album {
   @include span-columns(3);
-
-  background-color: $lighter-dark-gray;
 }
 
 .spotify-album-list {
@@ -12,8 +10,6 @@
   .spotify-album {
     @include span-columns(3 of 9);
     @include omega(3n);
-
-    background-color: $light-dark-gray;
   }
 
   .album-art {
@@ -26,6 +22,7 @@
 
   .album-art {
     background: center / cover no-repeat;
+    margin-bottom: 1em;
 
     &:after {
       content: "";
@@ -36,10 +33,15 @@
 
   .album-name {
     font-weight: 500;
+    margin-bottom: .25em;
 
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+
+    .explicit-icon {
+      margin-top: 5px;
+    }
   }
 
   .artist-name {
@@ -51,11 +53,32 @@
   }
 
   .album-link {
-    font-size: .8em;
+    font-size: .9em;
 
     &:hover {
       text-decoration: none;
     }
+  }
+
+  .metadata {
+    font-size: 14px;
+    margin-bottom: 1em;
+    padding: 4px;
+  }
+}
+
+.explicit-icon {
+  border: 1px solid $red;
+  border-radius: 4px;
+  margin-top: 2px;
+  margin-left: 4px;
+  padding: 0 5px;
+  font-size: 10px;
+  float: right;
+  color: $red;
+
+  &:after {
+    content: 'E';
   }
 }
 
@@ -87,6 +110,29 @@
 
     &:hover {
       opacity: 1;
+    }
+  }
+}
+
+.track-list {
+  .track-list-item {
+    font-size: 14px;
+    padding: .6em 4px;
+
+    border-bottom: 1px solid $dark-gray;
+    &:first-child {
+      border-top: 1px solid $dark-gray;
+    }
+
+    &:hover {
+      background-color: $dark-gray;
+    }
+
+    .track-number {
+      color: $text-light-gray;
+      display: inline-block;
+      min-width: 16px;
+      margin-right: 4px;
     }
   }
 }
