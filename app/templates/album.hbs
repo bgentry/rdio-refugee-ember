@@ -15,9 +15,7 @@
     <dt>Duration</dt>
     <dd>{{model.rdioAlbum.duration}}</dd>
     <dt>Explicit?</dt>
-    <dd>{{model.rdioAlbum.isExplicit}}</dd>
-    <dt>Clean?</dt>
-    <dd>{{model.rdioAlbum.isClean}}</dd>
+    <dd>{{if model.rdioAlbum.isExplicit 'yes' 'no'}}</dd>
   </dl>
 
   <h3>Track list:</h3>
@@ -51,11 +49,9 @@
         <dt>Tracks</dt>
         <dd>{{spotifyAlbum.tracks.length}}</dd>
         <dt>Duration</dt>
-        <dd>{{if spotifyAlbum.durationMs spotifyAlbum.durationMs '-'}}</dd>
+        <dd>{{if spotifyAlbum.duration spotifyAlbum.duration '-'}}</dd>
         <dt>Explicit?</dt>
-        <dd>-</dd>
-        <dt>Clean?</dt>
-        <dd>{{spotifyAlbum.isClean}}</dd>
+        <dd>{{if spotifyAlbum.explicit 'yes' 'no'}}</dd>
       </dl>
 
       <h3>Track list:</h3>
@@ -63,7 +59,7 @@
         {{#each spotifyAlbum.tracks as |track|}}
           <li>
             {{track.trackNum}}: {{track.name}}
-            {{#if track.isExplicit}}(Explicit){{/if}}
+            {{#if track.explicit}}(Explicit){{/if}}
           </li>
         {{/each}}
       </ul>
