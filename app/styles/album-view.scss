@@ -1,5 +1,13 @@
 @import 'variables';
 
+$album-area-padding: 4px;
+
+@mixin text-ellipsis() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .rdio-album {
   @include span-columns(3);
 }
@@ -19,6 +27,7 @@
 
 .rdio-album, .spotify-album {
   overflow: hidden;
+  margin-bottom: 2em;
 
   .album-art {
     background: center / cover no-repeat;
@@ -33,23 +42,22 @@
 
   .album-name {
     font-weight: 500;
-    margin-bottom: .25em;
-
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    margin-bottom: 0;
+    padding: 0 $album-area-padding;
 
     .explicit-icon {
       margin-top: 5px;
     }
+
+    @include text-ellipsis;
   }
 
   .artist-name {
+    padding: 0 $album-area-padding;
+
     color: $text-light-gray;
 
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+    @include text-ellipsis;
   }
 
   .album-link {
@@ -63,7 +71,9 @@
   .metadata {
     font-size: 14px;
     margin-bottom: 1em;
-    padding: 4px;
+    padding: 0 $album-area-padding;
+
+    color: $text-light-gray;
   }
 }
 
@@ -117,7 +127,7 @@
 .track-list {
   .track-list-item {
     font-size: 14px;
-    padding: .6em 4px;
+    padding: .6em $album-area-padding;
 
     border-bottom: 1px solid $dark-gray;
     &:first-child {
@@ -126,6 +136,12 @@
 
     &:hover {
       background-color: $dark-gray;
+    }
+
+    @include text-ellipsis;
+
+    .explicit-icon {
+      float: right;
     }
 
     .track-number {
