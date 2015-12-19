@@ -1,6 +1,12 @@
 <div class='rdio-album'>
+  <header>
+    <h3>Rdio Album</h3>
+  </header>
   <div class='album-art' style={{backgroundImage model.rdioAlbum.icon}}></div>
-  <p class='album-name'>{{model.rdioAlbum.name}}</p>
+  <p class='album-name'>
+    {{model.rdioAlbum.name}}
+    <a class='album-link' href='{{model.rdioAlbum.shortUrl}}' title='View on Rdio'>🔗</a>
+  </p>
   <p class='artist-name'>{{model.rdioAlbum.artistName}}</p>
 
   <dl>
@@ -12,8 +18,6 @@
     <dd>{{model.rdioAlbum.isExplicit}}</dd>
     <dt>Clean?</dt>
     <dd>{{model.rdioAlbum.isClean}}</dd>
-    <dt>URL</dt>
-    <dd><a href='{{model.rdioAlbum.shortUrl}}'>{{model.rdioAlbum.shortUrl}}</a></dd>
   </dl>
 
   <h3>Track list:</h3>
@@ -27,23 +31,31 @@
   </ul>
 </div>
 
+<header>
+  <h3>Spotify Matches</h3>
+</header>
+
 <div class='spotify-album-list'>
   {{#each model.matches as |spotifyAlbum|}}
     <div class='spotify-album'>
+      <div class='select-album'>
+        <p>Select this match ✓</p>
+      </div>
       <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
-      <p class='album-name'>{{spotifyAlbum.name}}</p>
+      <p class='album-name'>
+        {{spotifyAlbum.name}}
+        <a class='album-link' href='{{spotifyAlbum.url}}' title='View on Spotify'>🔗</a>
+      </p>
       <p class='artist-name'>{{spotifyAlbum.artistName}}</p>
       <dl>
         <dt>Tracks</dt>
         <dd>{{spotifyAlbum.tracks.length}}</dd>
         <dt>Duration</dt>
-        <dd>{{spotifyAlbum.durationMs}}</dd>
+        <dd>{{if spotifyAlbum.durationMs spotifyAlbum.durationMs '-'}}</dd>
         <dt>Explicit?</dt>
-        <dd>{{spotifyAlbum.isExplicit}}</dd>
+        <dd>-</dd>
         <dt>Clean?</dt>
         <dd>{{spotifyAlbum.isClean}}</dd>
-        <dt>URL</dt>
-        <dd><a href='{{spotifyAlbum.shortUrl}}'>{{spotifyAlbum.shortUrl}}</a></dd>
       </dl>
 
       <h3>Track list:</h3>

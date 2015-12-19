@@ -26,6 +26,8 @@
 }
 
 .rdio-album, .spotify-album {
+  overflow: hidden;
+
   .album-art {
     background: center / cover no-repeat;
 
@@ -37,6 +39,46 @@
   }
 
   .album-name {
-    font-weight: bold;
+    font-weight: 500;
+  }
+
+  .album-link {
+    font-size: .8em;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.spotify-album {
+  position: relative;
+
+  .select-album {
+    position: absolute;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    background-color: rgba(0, 255, 0, .3);
+    text-align: center;
+
+    p {
+      text-shadow: 1px 1px 2px black;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+      top: -50%;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
