@@ -60,14 +60,6 @@ $album-area-padding: 4px;
     @include text-ellipsis;
   }
 
-  .album-link {
-    font-size: .9em;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
   .metadata {
     font-size: 14px;
     margin-bottom: 1em;

@@ -4,11 +4,12 @@
   </header>
   <div class='album-art' style={{backgroundImage model.rdioAlbum.icon}}></div>
   <p class='album-name'>
-    {{model.rdioAlbum.name}}
-    {{#if model.rdioAlbum.isExplicit}}
-      <span class='explicit-icon'></span>
-    {{/if}}
-    <a class='album-link' href='{{model.rdioAlbum.shortUrl}}' title='View on Rdio'>🔗</a>
+    <a href='{{model.rdioAlbum.shortUrl}}' title='View on Rdio'>
+      {{model.rdioAlbum.name}}
+      {{#if model.rdioAlbum.isExplicit}}
+        <span class='explicit-icon'></span>
+      {{/if}}
+    </a>
   </p>
   <p class='artist-name'>{{model.rdioAlbum.artistName}}</p>
 
@@ -43,11 +44,12 @@
       </div>
       <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
       <p class='album-name' title={{spotifyAlbum.name}}>
-        {{#if spotifyAlbum.explicit}}
-          <span class='explicit-icon'></span>
-        {{/if}}
-        {{spotifyAlbum.name}}
-        <a class='album-link' href='{{spotifyAlbum.url}}' title='View on Spotify'>🔗</a>
+        <a href='{{spotifyAlbum.url}}' title='View on Spotify'>
+          {{#if spotifyAlbum.explicit}}
+            <span class='explicit-icon'></span>
+          {{/if}}
+          {{spotifyAlbum.name}}
+        </a>
       </p>
       <p class='artist-name' title={{spotifyAlbum.artistName}}>{{spotifyAlbum.artistName}}</p>
       <div class='metadata'>
