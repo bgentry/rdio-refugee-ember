@@ -19,10 +19,6 @@
   .album-art {
     width: 100%;
   }
-
-  .artist-name {
-    color: $text-light-gray;
-  }
 }
 
 .rdio-album, .spotify-album {
@@ -40,6 +36,18 @@
 
   .album-name {
     font-weight: 500;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .artist-name {
+    color: $text-light-gray;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .album-link {

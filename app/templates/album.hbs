@@ -40,11 +40,11 @@
         <p>Select this match ✓</p>
       </div>
       <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
-      <p class='album-name'>
+      <p class='album-name' title={{spotifyAlbum.name}}>
         {{spotifyAlbum.name}}
         <a class='album-link' href='{{spotifyAlbum.url}}' title='View on Spotify'>🔗</a>
       </p>
-      <p class='artist-name'>{{spotifyAlbum.artistName}}</p>
+      <p class='artist-name' title={{spotifyAlbum.artistName}}>{{spotifyAlbum.artistName}}</p>
       <dl>
         <dt>Tracks</dt>
         <dd>{{spotifyAlbum.tracks.length}}</dd>
