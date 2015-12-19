@@ -1,6 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('match', 'Unit | Model | match', {
+moduleForModel('albumMatch', 'Unit | Model | match', {
   // Specify the other units that are required for this test.
   needs: []
 });
