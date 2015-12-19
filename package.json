@@ -42,6 +42,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-lazy-image": "twokul/ember-lazy-image",
+    "ember-lodash": "0.0.6",
     "ember-normalize": "0.0.9",
     "ember-simple-auth": "1.0.1",
     "ember-suave": "1.2.2",
