@@ -37,39 +37,7 @@
 </header>
 
 <div class='spotify-album-list'>
-  {{#each model.matches as |spotifyAlbum|}}
-    <div class='spotify-album'>
-      <div class='select-album'>
-        <p>Select this match ✓</p>
-      </div>
-      <div class='album-art' style={{backgroundImage spotifyAlbum.image}}></div>
-      <p class='album-name' title={{spotifyAlbum.name}}>
-        <a href='{{spotifyAlbum.url}}' title='View on Spotify'>
-          {{#if spotifyAlbum.explicit}}
-            <span class='explicit-icon'></span>
-          {{/if}}
-          {{spotifyAlbum.name}}
-        </a>
-      </p>
-      <p class='artist-name' title={{spotifyAlbum.artistName}}>{{spotifyAlbum.artistName}}</p>
-      <div class='metadata'>
-        {{moment-format spotifyAlbum.releaseDate 'YYYY'}}
-        ·
-        {{pluralize-word spotifyAlbum.trackCount 'songs'}},
-        {{moment-duration spotifyAlbum.duration 's'}}
-      </div>
-
-      <ul class='track-list'>
-        {{#each spotifyAlbum.tracks as |track|}}
-          <li class='track-list-item'>
-            {{#if track.explicit}}
-              <span class='explicit-icon'></span>
-            {{/if}}
-            <span class='track-number'>{{track.trackNum}}</span>
-            {{track.name}}
-          </li>
-        {{/each}}
-      </ul>
-    </div>
+  {{#each model.matches as |match|}}
+    {{album-match collectionAlbum=model match=match}}
   {{/each}}
 </div>
