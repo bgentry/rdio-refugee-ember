@@ -1,35 +1,36 @@
-<div class='spotify-album'>
-  {{#unless isSelected}}
-    <div class='select-album'>
-      <p>Select this match ✓</p>
-    </div>
-  {{/unless}}
-  <div class='album-art' style={{backgroundImage match.image}}></div>
-  <p class='album-name' title={{match.name}}>
-    <a href='{{match.url}}' title='View on Spotify'>
-      {{#if match.explicit}}
+{{#if isSelected}}
+  <div class='selected-album' title='Selected match'><p>✓</p></div>
+{{else}}
+  <div class='select-album' {{action 'selectMatch'}}>
+    <p>Select this match ✓</p>
+  </div>
+{{/if}}
+
+<div class='album-art' style={{backgroundImage match.image}}></div>
+<p class='album-name' title={{match.name}}>
+  <a href='{{match.url}}' title='View on Spotify'>
+    {{#if match.explicit}}
+      <span class='explicit-icon'></span>
+    {{/if}}
+    {{match.name}}
+  </a>
+</p>
+<p class='artist-name' title={{match.artistName}}>{{match.artistName}}</p>
+<div class='metadata'>
+  {{moment-format match.releaseDate 'YYYY'}}
+  ·
+  {{pluralize-word match.trackCount 'songs'}},
+  {{moment-duration match.duration 's'}}
+</div>
+
+<ul class='track-list'>
+  {{#each match.tracks as |track|}}
+    <li class='track-list-item'>
+      {{#if track.explicit}}
         <span class='explicit-icon'></span>
       {{/if}}
-      {{match.name}}
-    </a>
-  </p>
-  <p class='artist-name' title={{match.artistName}}>{{match.artistName}}</p>
-  <div class='metadata'>
-    {{moment-format match.releaseDate 'YYYY'}}
-    ·
-    {{pluralize-word match.trackCount 'songs'}},
-    {{moment-duration match.duration 's'}}
-  </div>
-
-  <ul class='track-list'>
-    {{#each match.tracks as |track|}}
-      <li class='track-list-item'>
-        {{#if track.explicit}}
-          <span class='explicit-icon'></span>
-        {{/if}}
-        <span class='track-number'>{{track.trackNum}}</span>
-        {{track.name}}
-      </li>
-    {{/each}}
-  </ul>
-</div>
+      <span class='track-number'>{{track.trackNum}}</span>
+      {{track.name}}
+    </li>
+  {{/each}}
+</ul>

@@ -6,7 +6,7 @@ const { attr, hasMany } = DS;
 export default DS.Model.extend({
   matches: hasMany('albumMatches'),
   rdioAlbum: attr(),
-  selectedMatchId: attr('string'),
+  selectedMatchId: attr('number'),
 
   rdioTrackCount: computed('rdioAlbum', function() {
     const rdioAlbum = this.get('rdioAlbum');

@@ -87,6 +87,21 @@ $album-area-padding: 4px;
 .spotify-album {
   position: relative;
 
+  .selected-album {
+    position: absolute;
+    width: 100%;
+    padding-top: 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $green;
+    font-size: 6em;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+  }
+
   .select-album {
     position: absolute;
     width: 100%;
