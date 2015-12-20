@@ -23,10 +23,11 @@
   <ul class='track-list'>
     {{#each model.rdioAlbum.tracks as |track|}}
       <li class='track-list-item'>
-        {{track.trackNum}}: {{track.name}}
         {{#if track.isExplicit}}
           <span class='explicit-icon'></span>
         {{/if}}
+        <span class='track-number'>{{track.trackNum}}</span>
+        {{track.name}}
       </li>
     {{/each}}
   </ul>
