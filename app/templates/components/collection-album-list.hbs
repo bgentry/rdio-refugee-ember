@@ -1,0 +1,9 @@
+<ul class='collection-list'>
+  {{#each collectionAlbums as |album|}}
+    <li class='collection-item' title='{{album.rdioAlbum.name}}'>
+      {{#link-to 'album' album.id}}
+        {{lazy-image class='album-art' url=album.rdioAlbum.icon}}
+      {{/link-to}}
+    </li>
+  {{/each}}
+</ul>

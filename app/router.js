@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('library', function() {
     this.route('albums', { resetNamespace: true }, function() {
       this.route('album', { path: '/:id', resetNamespace: true });
+      this.route('unmatched');
     });
   });
 });
