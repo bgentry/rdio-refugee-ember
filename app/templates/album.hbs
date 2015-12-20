@@ -16,7 +16,7 @@
   <div class='metadata'>
     {{moment-format model.rdioAlbum.releaseDate 'YYYY'}}
     ·
-    {{pluralize-word 0 'songs'}},
+    {{pluralize-word model.rdioTrackCount 'songs'}},
     {{moment-duration model.rdioAlbum.duration 's'}}
   </div>
 
