@@ -1,5 +1,4 @@
 <p>{{#link-to 'albums'}}Albums{{/link-to}}</p>
-<p>{{#link-to 'albums.unmatched'}}Unmatched Albums{{/link-to}}</p>
 
 {{#unless currentUser.spotifyLoggedIn}}
   <button {{action 'signIntoSpotify'}}>Sign into Spotify</button>
@@ -9,6 +8,10 @@
 {{/unless}}
 {{#if currentUser.readyForSpotifyMatch}}
   <button {{action 'matchWithSpotify'}}>Match with Spotify</button>
+{{/if}}
+
+{{#if currentUser.spotifyMatched}}
+  <button {{action 'saveToSpotify'}}>Save matches to Spotify</button>
 {{/if}}
 
 {{outlet}}
