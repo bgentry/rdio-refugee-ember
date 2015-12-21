@@ -1,12 +1,7 @@
 @import 'variables';
+@import 'text-ellipsis';
 
 $album-area-padding: 4px;
-
-@mixin text-ellipsis() {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
 
 .rdio-album {
   @include span-columns(3);
