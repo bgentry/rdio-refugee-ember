@@ -7,6 +7,6 @@ export default DS.Transform.extend({
   },
 
   serialize(deserialized) {
-    return value ? value.toJSON() : null;
+    return deserialized ? deserialized.toJSON() : null;
   }
 });
