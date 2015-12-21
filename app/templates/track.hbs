@@ -40,5 +40,6 @@
 
 <div class='spotify-track-list'>
   {{#each model.matches as |match|}}
+    {{track-match collectionTrack=model match=match}}
   {{/each}}
 </div>

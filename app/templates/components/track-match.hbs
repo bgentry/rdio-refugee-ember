@@ -1,0 +1,38 @@
+{{#if isSelected}}
+  <div class='selected-album' title='Selected match'><p>✓</p></div>
+{{else}}
+  <div class='select-album' {{action 'selectMatch'}}>
+    <p>Select this match ✓</p>
+  </div>
+{{/if}}
+
+<div class='album-art' style={{backgroundImage match.spotifyAlbum.image}}></div>
+<p class='track-name'>
+  <a href='{{match.url}}' title='View on Spotify'>
+    {{match.name}}
+    {{#if match.explicit}}
+      <span class='explicit-icon'></span>
+    {{/if}}
+  </a>
+</p>
+<p class='album-name'>{{match.spotifyAlbum.name}}</p>
+<p class='artist-name'>{{match.artistName}}</p>
+
+<div class='metadata'>
+  {{moment-format match.spotifyAlbum.releaseDate 'YYYY'}}
+  ·
+  {{duration 0}}
+</div>
+
+<ul class='track-list'>
+  {{#each match.spotifyAlbum.tracks as |track|}}
+    <li class='track-list-item'>
+      {{#if track.isExplicit}}
+        <span class='explicit-icon'></span>
+      {{/if}}
+      <span class='track-number'>{{track.trackNum}}</span>
+      {{track.name}}
+      {{track-selected-indicator a=match b=track}}
+    </li>
+  {{/each}}
+</ul>
