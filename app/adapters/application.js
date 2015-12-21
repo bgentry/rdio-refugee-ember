@@ -1,7 +1,8 @@
 import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import ENV from '../config/environment'
 
 export default DS.RESTAdapter.extend(DataAdapterMixin, {
   authorizer: 'authorizer:oauth2',
-  host: 'http://localhost:8000'
+  host: ENV.APP.API_URL
 });

@@ -42,19 +42,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.APP_URL = 'http://localhost:4200';
+    ENV.APP.API_URL = 'http://localhost:8000';
 
     ENV['ember-cli-mirage'] = {
       enabled: false
-    };
-
-    ENV.contentSecurityPolicy = {
-      'default-src': "'none'",
-      'script-src': "'self'",
-      'font-src': "'self'",
-      'connect-src': "'self' http://localhost:8000",
-      'img-src': "'self' *.akamaihd.net *.cdn2-rdio.com i.scdn.co",
-      'style-src': "'self' 'unsafe-inline'",
-      'media-src': "'self'"
     };
   }
 
@@ -71,8 +63,19 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.APP_URL = process.env.APP_URL;
+    ENV.APP.API_URL = process.env.API_URL;
   }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self'",
+    'font-src': "'self'",
+    'connect-src': `'self' ${ENV.APP.API_URL}`,
+    'img-src': "'self' *.akamaihd.net *.cdn2-rdio.com i.scdn.co",
+    'style-src': "'self' 'unsafe-inline'",
+    'media-src': "'self'"
+  };
 
   return ENV;
 };
