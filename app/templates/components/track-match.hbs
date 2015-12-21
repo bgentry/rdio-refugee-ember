@@ -21,13 +21,14 @@
 <div class='metadata'>
   {{moment-format match.spotifyAlbum.releaseDate 'YYYY'}}
   ·
-  {{duration 0}}
+  Track: {{duration match.duration}},
+  Album: {{duration match.spotifyAlbum.duration}}
 </div>
 
 <ul class='track-list'>
   {{#each match.spotifyAlbum.tracks as |track|}}
     <li class='track-list-item'>
-      {{#if track.isExplicit}}
+      {{#if track.explicit}}
         <span class='explicit-icon'></span>
       {{/if}}
       <span class='track-number'>{{track.trackNum}}</span>
