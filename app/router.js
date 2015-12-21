@@ -14,6 +14,8 @@ Router.map(function() {
       this.route('album', { path: '/:id', resetNamespace: true });
       this.route('unmatched');
     });
+    this.route('tracks', { resetNamespace: true }, function() {
+    });
   });
 });
 

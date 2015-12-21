@@ -1,0 +1,24 @@
+<table class='collection-track-list'>
+  <thead>
+    <tr>
+      <th class='list-row-artwork'></th>
+      <th class='list-row-name'>Song</th>
+      <th class='list-row-artists'>Artist</th>
+      <th class='list-row-albums'>Album</th>
+      <th class='list-row-time'>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each sortedCollectionTracks as |track|}}
+      <tr class='collection-track'>
+        <td class='list-row-artwork'>
+          <div class='album-art' style={{backgroundImage track.rdioTrack.icon}}></div>
+        </td>
+        <td class='list-row-name' title={{track.rdioTrack.name}}>{{track.rdioTrack.name}}</td>
+        <td class='list-row-artists' title={{track.rdioTrack.artistName}}>{{track.rdioTrack.artistName}}</td>
+        <td class='list-row-albums' title={{track.rdioTrack.album.name}}>{{track.rdioTrack.album.name}}</td>
+        <td class='list-row-time'>{{duration track.rdioTrack.duration}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+@import 'variables';
+@import 'text-ellipsis';
+
+.collection-track-list {
+  .list-row-artwork {
+    width: 60px;
+  }
+
+  .list-row-time {
+    width: 60px;
+    text-align: right;
+  }
+
+  .list-row-name {
+    @include text-ellipsis;
+  }
+
+  .album-art {
+    background: center / cover no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-bottom: -.5em;
+    margin-top: -.5em;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+}
