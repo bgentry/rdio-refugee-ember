@@ -27,7 +27,7 @@
 
 <ul class='track-list'>
   {{#each match.spotifyAlbum.tracks as |track|}}
-    <li class='track-list-item'>
+    <li class='track-list-item' title={{track.name}}>
       {{#if track.explicit}}
         <span class='explicit-icon'></span>
       {{/if}}
