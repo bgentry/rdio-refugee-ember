@@ -31,9 +31,9 @@
       {{#if track.explicit}}
         <span class='explicit-icon'></span>
       {{/if}}
+      {{track-selected-indicator a=match b=track}}
       <span class='track-number'>{{track.trackNum}}</span>
       {{track.name}}
-      {{track-selected-indicator a=match b=track}}
     </li>
   {{/each}}
 </ul>

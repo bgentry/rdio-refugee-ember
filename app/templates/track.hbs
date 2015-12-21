@@ -27,9 +27,9 @@
         {{#if track.isExplicit}}
           <span class='explicit-icon'></span>
         {{/if}}
+        {{track-selected-indicator a=model.rdioTrack b=track}}
         <span class='track-number'>{{track.trackNum}}</span>
         {{track.name}}
-        {{track-selected-indicator a=model.rdioTrack b=track}}
       </li>
     {{/each}}
   </ul>

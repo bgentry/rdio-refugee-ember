@@ -7,6 +7,6 @@ export default Ember.Component.extend({
   tracksAreEqual: computed('a', 'b', function() {
     const a = this.get('a');
     const b = this.get('b');
-    return parseInt(a.id) === b.id;
+    return parseInt(a.id) === parseInt(b.id);
   })
 });
