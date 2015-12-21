@@ -2,7 +2,7 @@ import DS from 'ember-data';
 const { attr } = DS;
 
 export default DS.Model.extend({
-  // matches: hasMany('albumMatches'),
+  matches: attr(),
   rdioTrack: attr(),
   selectedMatchId: attr('number'),
 

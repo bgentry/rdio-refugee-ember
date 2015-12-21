@@ -3,14 +3,14 @@
 
 $album-area-padding: 4px;
 
-.rdio-album {
+.rdio-album, .rdio-track {
   @include span-columns(3);
 }
 
-.spotify-album-list {
+.spotify-album-list, .spotify-track-list {
   @include span-columns(9);
 
-  .spotify-album {
+  .spotify-album, .spotify-track {
     @include span-columns(3 of 9);
     @include omega(3n);
   }
@@ -20,7 +20,7 @@ $album-area-padding: 4px;
   }
 }
 
-.rdio-album, .spotify-album {
+.rdio-album, .spotify-album, .rdio-track, .spotify-track {
   overflow: hidden;
   margin-bottom: 2em;
 
@@ -35,7 +35,7 @@ $album-area-padding: 4px;
     }
   }
 
-  .album-name {
+  .album-name, .track-name {
     font-weight: 500;
     margin-bottom: 0;
     padding: 0 $album-area-padding;

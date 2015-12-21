@@ -1,0 +1,44 @@
+<div class='rdio-track'>
+  <header>
+    <h3>Rdio Track</h3>
+  </header>
+  <div class='album-art' style={{backgroundImage model.rdioTrack.icon}}></div>
+  <p class='track-name'>
+    <a href='{{model.rdioTrack.shortUrl}}' title='View on Rdio'>
+      {{model.rdioTrack.name}}
+      {{#if model.rdioTrack.isExplicit}}
+        <span class='explicit-icon'></span>
+      {{/if}}
+    </a>
+  </p>
+  <p class='album-name'>{{model.rdioTrack.album.name}}</p>
+  <p class='artist-name'>{{model.rdioTrack.artistName}}</p>
+
+  <div class='metadata'>
+    {{moment-format model.rdioTrack.album.releaseDate 'YYYY'}}
+    ·
+    {{duration model.rdioTrack.duration}}
+  </div>
+
+  <ul class='track-list'>
+    {{#each model.rdioTrack.album.tracks as |track|}}
+      <li class='track-list-item'>
+        {{#if track.isExplicit}}
+          <span class='explicit-icon'></span>
+        {{/if}}
+        <span class='track-number'>{{track.trackNum}}</span>
+        {{track.name}}
+        {{track-selected-indicator a=model.rdioTrack b=track}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+<header>
+  <h3>Spotify Matches</h3>
+</header>
+
+<div class='spotify-track-list'>
+  {{#each model.matches as |match|}}
+  {{/each}}
+</div>

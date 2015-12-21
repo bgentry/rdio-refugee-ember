@@ -12,9 +12,15 @@
     {{#each sortedCollectionTracks as |track|}}
       <tr class='collection-track'>
         <td class='list-row-artwork'>
-          <div class='album-art' style={{backgroundImage track.rdioTrack.icon}}></div>
+          {{#link-to 'track' track.id}}
+            <div class='album-art' style={{backgroundImage track.rdioTrack.icon}}></div>
+          {{/link-to}}
         </td>
-        <td class='list-row-name' title={{track.rdioTrack.name}}>{{track.rdioTrack.name}}</td>
+        <td class='list-row-name' title={{track.rdioTrack.name}}>
+          {{#link-to 'track' track.id}}
+            {{track.rdioTrack.name}}
+          {{/link-to}}
+        </td>
         <td class='list-row-artists' title={{track.rdioTrack.artistName}}>{{track.rdioTrack.artistName}}</td>
         <td class='list-row-albums' title={{track.rdioTrack.album.name}}>{{track.rdioTrack.album.name}}</td>
         <td class='list-row-time'>{{duration track.rdioTrack.duration}}</td>

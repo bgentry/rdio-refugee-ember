@@ -29,3 +29,17 @@
     }
   }
 }
+
+.rdio-track, .spotify-track {
+  .album-name {
+    padding: 0 $album-area-padding;
+
+    color: $text-light-gray;
+
+    @include text-ellipsis;
+  }
+
+  .track-indicator {
+    color: $rdio-blue;
+  }
+}
