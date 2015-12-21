@@ -32,7 +32,7 @@ a {
   color: $text-white;
   text-decoration: none;
 
-  &:hover {
+  &:hover, &:active {
     color: $text-white;
     text-decoration: underline;
   }

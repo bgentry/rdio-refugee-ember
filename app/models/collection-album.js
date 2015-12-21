@@ -10,6 +10,9 @@ export default DS.Model.extend({
 
   rdioTrackCount: computed('rdioAlbum', function() {
     const rdioAlbum = this.get('rdioAlbum');
+    if (!rdioAlbum.tracks) {
+      return 0;
+    }
     return rdioAlbum.tracks.length;
   }),
 
