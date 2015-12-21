@@ -16,6 +16,7 @@ Router.map(function() {
     });
     this.route('tracks', { resetNamespace: true }, function() {
       this.route('track', { path: '/:id', resetNamespace: true });
+      this.route('unmatched');
     });
   });
 });
