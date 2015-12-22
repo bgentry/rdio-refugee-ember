@@ -16,23 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_URL: 'https://rdio-refugee-api.herokuapp.com',
+      APP_URL: 'https://rdio-refugee.bgentry.io'
     },
     'ember-simple-auth': {
       authenticationRoute: 'login',
-    },
-    torii: {
-      sessionServiceName: 'session',
-      providers: {
-        'rdio-oauth2': {
-          apiKey: 'fpfhz6k7qzgzvazadbup2bo474',
-        },
-        'spotify-oauth2': {
-          accessType: 'offline',
-          scope: 'user-library-modify user-library-read user-read-private',
-          apiKey: '0488da3e1a7549e299ab4e26e0b5c0d1',
-          redirectUri: 'http://localhost:4210/login/spotify',
-        }
-      }
     }
   };
 
@@ -63,9 +51,24 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.APP_URL = process.env.APP_URL;
-    ENV.APP.API_URL = process.env.API_URL;
+    ENV.APP.API_URL = 'https://rdio-refugee-api.herokuapp.com';
+    ENV.APP.APP_URL = 'https://rdio-refugee.bgentry.io';
   }
+
+  ENV.torii = {
+    sessionServiceName: 'session',
+    providers: {
+      'rdio-oauth2': {
+        apiKey: 'fpfhz6k7qzgzvazadbup2bo474',
+      },
+      'spotify-oauth2': {
+        accessType: 'offline',
+        scope: 'user-library-modify user-library-read user-read-private',
+        apiKey: '0488da3e1a7549e299ab4e26e0b5c0d1',
+        redirectUri: `${ENV.APP.APP_URL}/login/spotify`,
+      }
+    }
+  };
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
