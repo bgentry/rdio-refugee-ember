@@ -13,6 +13,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           type: 'POST',
           url: `${ENV.APP.API_URL}/sync-from-rdio`,
           headers
+        }).then(() => {
+          this.send('reloadCurrentUser');
         });
       });
     },

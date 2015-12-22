@@ -7,7 +7,7 @@
   <ol class='instruction-list'>
     <li>Login with both Rdio and Spotify.</li>
     <li>
-      Sync your collection from Rdio (click "Start Rdio Sync"). <strong>This will take about 10-15 minutes</strong>, and there is no visual indication of progress. Just click the button once, and reload occasionally until you see the "Match with Spotify" button.<br/><br/>Please be patient 🙏
+      Sync your collection from Rdio (click "Start Rdio Sync"). <strong>This will take about 10-15 minutes</strong>. The number of albums and tracks imported will be displayed. Just click the button once, and reload occasionally until you see the "Match with Spotify" button.<br/><br/>Please be patient 🙏
     </li>
     <li>
       Match your albums and tracks with Spotify (click "Match with Spotify"). Again, this will take a few minutes, and there is no visual indication of progress. Just click the button once, and reload occasionally until the button has disappeared.
@@ -26,6 +26,11 @@
     </li>
   </ol>
 
+  {{#if currentUser.rdioSyncInProgress}}
+    <p>
+      Synced {{currentUser.rdioAlbumImportCount}} albums, {{currentUser.rdioTrackImportCount}} tracks
+    </p>
+  {{/if}}
 
   {{#unless currentUser.spotifyLoggedIn}}
     <button {{action 'signIntoSpotify'}}>Sign into Spotify</button>
