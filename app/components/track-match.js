@@ -19,6 +19,21 @@ export default Ember.Component.extend({
 
       collectionTrack.set('selectedMatchId', matchId);
       collectionTrack.save().then(saveSuccess).catch(saveFailure);
+    },
+
+    unselectMatch() {
+      const collectionTrack = this.get('collectionTrack');
+
+      function saveSuccess() {
+        console.log('selected match cleared!');
+      }
+
+      function saveFailure(reason) {
+        console.log('selected match clear failed!', reason);
+      }
+
+      collectionTrack.set('selectedMatchId', null);
+      collectionTrack.save().then(saveSuccess).catch(saveFailure);
     }
   },
 

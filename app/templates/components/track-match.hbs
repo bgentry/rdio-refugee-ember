@@ -1,5 +1,5 @@
 {{#if isSelected}}
-  <div class='selected-album' title='Selected match'><p>✓</p></div>
+  <div class='selected-album' title='Selected match' {{action 'unselectMatch'}}><p>✓</p></div>
 {{else}}
   <div class='select-album' {{action 'selectMatch'}}>
     <p>Select this match ✓</p>

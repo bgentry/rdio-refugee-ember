@@ -19,7 +19,22 @@ export default Ember.Component.extend({
 
       collectionAlbum.set('selectedMatchId', matchId);
       collectionAlbum.save().then(saveSuccess).catch(saveFailure);
-    }
+    },
+
+    unselectMatch() {
+      const collectionAlbum = this.get('collectionAlbum');
+
+      function saveSuccess() {
+        console.log('selected match cleared!');
+      }
+
+      function saveFailure(reason) {
+        console.log('selected match clear failed!', reason);
+      }
+
+      collectionAlbum.set('selectedMatchId', null);
+      collectionAlbum.save().then(saveSuccess).catch(saveFailure);
+    },
   },
 
   // properties:
