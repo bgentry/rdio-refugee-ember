@@ -1,9 +1,25 @@
-<header>
-  <h1 id="title">Rdio Refugee</h1>
-
-  {{#if session.isAuthenticated}}
-    <button {{action 'logout'}}>Logout</button>
-  {{/if}}
+<header class='nav-bar'>
+  <div class='centered-navigation-wrapper'>
+    <nav role="navigation">
+      <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+        <li class="nav-link logo">Rdio Refugee</li>
+        <li class="nav-link">
+          {{#link-to 'library'}}Library{{/link-to}}
+        </li>
+        <li class="nav-link">
+          {{#link-to 'albums'}}Albums{{/link-to}}
+        </li>
+        <li class="nav-link">
+          {{#link-to 'tracks'}}Tracks{{/link-to}}
+        </li>
+        {{#if session.isAuthenticated}}
+          <li class="nav-link">
+            <button class='logout' {{action 'logout'}}>Logout</button>
+          </li>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <section class='content'>
