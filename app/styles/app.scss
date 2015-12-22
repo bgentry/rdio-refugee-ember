@@ -15,6 +15,7 @@ h2 {
 
 section {
   @include outer-container;
+  margin-top: 1em;
 }
 
 // internal imports:
@@ -37,4 +38,23 @@ a {
     color: $text-white;
     text-decoration: underline;
   }
+}
+
+.center-container {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.instruction-list {
+  list-style-type: decimal;
+  margin-top: 1em;
+  margin-bottom: 2em;
+  li {
+    margin-bottom: 1em;
+  }
+}
+
+.footer-text {
+  margin-top: 3em;
+  text-align: center;
 }
