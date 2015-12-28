@@ -1,53 +1,13 @@
-# Rdio2spotify
+# Rdio Refugee
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+I was a long-time Rdio user before they decided to shut down. Of the other music streaming services, Spotify seemed like the only one that was good enough and had an API for me to move my Rdio collection over. I built Rdio Refugee to do that: https://twitter.com/blakegentry/status/679206751174987777
 
-## Prerequisites
+![](http://cl.ly/3y0E3b3A0f45/data)
 
-You will need the following things properly installed on your computer.
+![](http://cl.ly/0O0t052k1u2P/data)
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://www.ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+The app was only active for around 24 hours before Rdio shut down as it required Rdio's API. Even though this code is no longer being used, I've pushed it up to Github in case it's useful to anybody as an example Ember.js app.
 
-## Installation
+It's built with Ember 2.2.0 and ember-data. It uses ember-simple-auth to manage authentication state and Torii to handle OAuth with external services (Rdio and Spotify). It was built in a big rush during my spare time before Rdio shut down, so I definitely had to cut some corners. That being said, I still think it's a respectable Ember app.
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
-
-## Running / Development
-
-* `ember server`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-
-### Code Generators
-
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://www.ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+The backend for this was written in Go. I'm really not proud of the code for that because of the verbosity of all the Go code for dealing with SQL queries, so I'm not open sourcing it.
